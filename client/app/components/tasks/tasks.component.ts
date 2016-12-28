@@ -6,6 +6,7 @@ import { Task } from './task.model';
   moduleId: module.id,
   selector: 'tasks',
   templateUrl: `tasks.component.html`,
+  styleUrls: ['tasks.component.css'],
   providers: [ TaskService ]
 })
 export class TasksComponent  {
@@ -29,7 +30,32 @@ export class TasksComponent  {
     this.taskService.addTask(newTask)
       .subscribe(task => {
         this.tasks.push(task);
+        this.title = '';
       });
 
   }
+
+  deleteTask(taskId: string) {
+    this.taskService.deleteTask(taskId)
+      .subscribe(data => {
+          if (data.n == 1) {
+            this.tasks =  this.tasks.filter(function (task) {
+              return task._id != taskId
+            });
+          }
+      });
+  }
+
+  updateStatus(task: Task) {
+    let _task: Task = {
+      _id: task._id,
+      title: task.title,
+      isDone: !task.isDone
+    };
+
+    this.taskService.updateTask(_task).subscribe(res => {
+      task = res;
+    });
+  }
+
 }

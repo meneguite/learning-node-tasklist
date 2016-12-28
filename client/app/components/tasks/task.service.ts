@@ -20,4 +20,23 @@ export class TaskService {
     return this.http.post('/api/task', JSON.stringify(task), { headers: headers})
       .map(res => res.json());
   }
+
+  updateTask(task: Task) {
+    let headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+
+    return this.http.put('/api/task/'+task._id, JSON.stringify(task), { headers: headers})
+      .map(res => res.json());
+  }
+
+  deleteTask(taskId: string) {
+    let headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+
+    return this.http.delete('/api/task/'+taskId, { headers: headers})
+      .map(res => res.json());
+  }
+
+
+
 }
