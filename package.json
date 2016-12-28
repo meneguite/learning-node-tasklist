@@ -1,0 +1,31 @@
+{
+  "name": "node-tasklist",
+  "version": "1.0.0",
+  "description": "MEAN TaskList",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/meneguite/learning-node-tasklist.git"
+  },
+  "keywords": [
+    "node",
+    "mean",
+    "angular",
+    "mongodb"
+  ],
+  "author": "Ronaldo Meneguite <ronaldo@fireguard.com.br>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/meneguite/learning-node-tasklist/issues"
+  },
+  "homepage": "https://github.com/meneguite/learning-node-tasklist#readme",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "ejs": "^2.5.5",
+    "express": "^4.14.0",
+    "mongojs": "^2.4.0"
+  }
+}
