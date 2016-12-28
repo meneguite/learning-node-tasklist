@@ -21,6 +21,15 @@ export class TasksComponent  {
 
   addTask(event: Event) {
     event.preventDefault();
-    console.log(this.title);
+    let newTask: Task = {
+      title: this.title,
+      isDone: false
+    };
+
+    this.taskService.addTask(newTask)
+      .subscribe(task => {
+        this.tasks.push(task);
+      });
+
   }
 }
